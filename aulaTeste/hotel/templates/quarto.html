@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Hotel Senai
+{% endblock %}
+
+{% block body %}
+
+    {% for item in dados_quarto %}
+        <div class="container-fluid p-5">
+            <h1 class="text-center">{{item.tipo}}</h1>
+            <p class="text-center">{{item.descricao}}</p>
+            <p class="text-center">Valor: R${{item.valor}}</p>
+            <p class="text-center">Quartos Disponiveis: {{item.disponibilidade}}</p>
+            <img src="{{item.foto_quarto.url}}" class="mx-auto d-block" alt="Quarto de Solteiro"  width="300" height="200"/>
+        </div>
+    {% endfor %}
+
+{% endblock %}
