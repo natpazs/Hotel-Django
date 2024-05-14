@@ -12,7 +12,7 @@
             <p class="text-center">{{item.descricao}}</p>
             <p class="text-center">Valor: R${{item.valor}}</p>
             <p class="text-center">Quartos Disponiveis: {{item.disponibilidade}}</p>
-            <img src="{{item.foto_quarto.url}}" class="mx-auto d-block" alt="Quarto de Solteiro"  width="300" height="200"/>
+            <img src="{{item.foto_quarto.url}}" class="mx-auto d-block" alt="{{item.tipo}}"  width="300" height="200"/>
         </div>
     {% endfor %}
 
