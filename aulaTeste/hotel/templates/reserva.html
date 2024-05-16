@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Hotel Senai
+{% endblock %}
+
+{% block body %}
+
+    <style>
+        /* Estilo para o card do formulário */
+        .form-card {
+            width: 500px; /* Largura aumentada */
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para o formulário */
+        form {
+            margin-top: 20px;
+        }
+
+        /* Estilo para os rótulos */
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Estilo para os campos de entrada */
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Garante que o padding não aumente a largura do input */
+        }
+
+        /* Estilo para o botão de envio */
+        input[type="submit"] {
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            border: none; /* Remove a borda do botão */
+            border-radius: 5px; /* Borda arredondada */
+            cursor: pointer; /* Cursor ao passar sobre o botão */
+            transition: background-color 0.3s ease; /* Transição suave ao passar o mouse sobre o botão */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8"> <!-- Largura aumentada para 8 colunas -->
+                <div class="card form-card mt-5 mb-5">
+                    <div class="card-body">
+                        <form action="/reserva" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.nome.label }}
+                                {{ form.nome }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.email.label }}
+                                {{ form.email }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.idade.label }}
+                                {{ form.idade }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.endereco.label }}
+                                {{ form.endereco }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.quarto.label }}
+                                {{ form.quarto }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.data.label }}
+                                {{ form.data }}
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

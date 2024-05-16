@@ -6,14 +6,29 @@
 
 {% block body %}
 
-    {% for item in dados_quarto %}
-        <div class="container-fluid p-5">
-            <h1 class="text-center">{{item.tipo}}</h1>
-            <p class="text-center">{{item.descricao}}</p>
-            <p class="text-center">Valor: R${{item.valor}}</p>
-            <p class="text-center">Quartos Disponiveis: {{item.disponibilidade}}</p>
-            <img src="{{item.foto_quarto.url}}" class="mx-auto d-block" alt="{{item.tipo}}"  width="300" height="200"/>
+    <style>
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            {% for item in dados_quarto %}
+                <div class="col-md-4 mb-4 mt-5 ms-5 me-5">
+                    <div class="card">
+                        <img src="{{ item.foto_quarto.url }}" class="card-img-top" alt="{{ item.tipo }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ item.tipo }}</h5>
+                            <p class="card-text">{{ item.descricao }}</p>
+                            <p class="card-text">Valor: R$ {{ item.valor }}</p>
+                            <p class="card-text">Quartos Disponíveis: {{ item.disponibilidade }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
 
 {% endblock %}

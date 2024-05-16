@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -27,3 +27,14 @@ class Quarto(models.Model):
 
     def __str__(self):
         return self.tipo
+    
+class Usuario(models.Model):
+    nome= models.CharField(max_length=20)
+    email= models.CharField(max_length=50)
+    idade = models.IntegerField()
+    endereco = models.CharField(max_length=60)
+    quarto = models.CharField(max_length=15,choices=TIPOS_QUARTOS)
+    data = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.nome
