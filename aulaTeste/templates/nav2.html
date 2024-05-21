@@ -1,0 +1,14 @@
+<nav class="navbar" style="background-color: black;">
+    {% for item in dados_hotel %}
+    <div class="container-fluid">
+        <div>
+            <img src="{{item.logo.url}}" alt="Logo" width="70" height="35" class="d-inline-block align-text-top">
+            <a href="http://127.0.0.1:8000" class="navbar-brand" style="text-decoration: none; color: white;">{{item.titulo}}</a>
+        </div>
+        <div class="d-flex">
+            <a href="http://127.0.0.1:8000/login" class="p-4" style="text-decoration: none; color:white;">Login</a>
+            <a href="http://127.0.0.1:8000/cadastro" class="p-4" style="text-decoration: none; color:white;">Cadastro</a>
+        </div>
+    </div>
+    {% endfor %}
+</nav>

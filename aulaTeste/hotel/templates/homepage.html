@@ -4,6 +4,10 @@
     Hotel Senai
 {% endblock %}
 
+{% block nav %}
+    {% include 'nav2.html' %}
+{% endblock %}
+
 {% block body %}
 
     {% for item in dados_hotel %}
@@ -11,7 +15,7 @@
             <div class="text-center">
                 <h1 style="color: white;">Bem-Vindos ao {{item.titulo}}!</h1>
                 <p style="font-size: 20px; color: white;">{{item.descricao}}</p>
-                <a type="button" class="btn btn-danger" href="http://127.0.0.1:8000/quarto">Confira</a>
+                <a type="button" class="btn btn-danger" href="http://127.0.0.1:8000/cadastro">Confira</a>
             </div>
         </div>
     {% endfor %}
